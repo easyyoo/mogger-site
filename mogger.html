@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rizzler's Realm</title>
+<style>
+    body {
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+        background: linear-gradient(135deg, #ff4ecd, #6c63ff);
+        color: white;
+        text-align: center;
+        padding: 20px;
+        overflow-x: hidden;
+    }
+    h1 {
+        font-size: 3em;
+        animation: bounce 1.5s infinite;
+    }
+    h2 {
+        font-size: 1.5em;
+        margin-bottom: 40px;
+    }
+    @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+    .btn {
+        display: none;
+        padding: 15px 25px;
+        margin: 15px;
+        background-color: yellow;
+        color: black;
+        font-size: 1.2em;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: transform 0.2s;
+        box-shadow: 0px 4px 6px rgba(0,0,0,0.3);
+    }
+    .btn:hover {
+        transform: scale(1.1);
+    }
+    .gif {
+        width: 120px;
+        height: auto;
+        margin: 15px auto;
+        display: block;
+    }
+    #videoSection {
+        display: none;
+        margin-top: 40px;
+    }
+    #shareBtn {
+        margin-top: 20px;
+        background: lime;
+        color: black;
+        font-size: 1.2em;
+    }
+    .quote-box {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 20px;
+        border-radius: 15px;
+        margin-top: 40px;
+        font-style: italic;
+    }
+</style>
+</head>
+<body>
+
+<h1>Welcome to the Rizzler's Realm!</h1>
+<h2>Click if you dare to witness the ultimate mogging!</h2>
+
+<!-- Funny GIF -->
+<img src="https://media.tenor.com/5Z_sKjQmK6QAAAAi/dance-party.gif" class="gif">
+
+<!-- Buttons -->
+<button id="btn1" class="btn">Tap Here to Meet the Certified Mogger!</button>
+<button id="btn2" class="btn">Unlock the Secrets of Rizz Mastery!</button>
+<button id="btn3" class="btn">Prepare for the Ultimate Mogging Experience!</button>
+
+<!-- Video Section -->
+<div id="videoSection">
+    <h2>Behold the Legend in Action!</h2>
+    <div style="height: 0; padding-bottom: calc(56.25%); position:relative; width: 100%; max-width: 800px; margin: auto;">
+        <iframe id="moggerVideo" allow="autoplay; gyroscope;" allowfullscreen height="100%" 
+            referrerpolicy="strict-origin" 
+            style="border:0; height:100%; left:0; overflow:hidden; position:absolute; top:0; width:100%" 
+            title="Embedded content made on Kapwing" 
+            width="100%">
+        </iframe>
+    </div>
+    <p style="font-size: 12px; text-align: right;">Video edited on 
+        <a href="https://www.kapwing.com/video-editor" target="_blank">Kapwing</a>
+    </p>
+    <br>
+    <button id="shareBtn" class="btn">Spread the Rizz, Share the Mog!</button>
+</div>
+
+<!-- Mogger Quotes -->
+<div class="quote-box" id="quoteBox" style="display:none;">
+    <p>"I don’t chase — I attract mogging opportunities."</p>
+    <p>"Rizz is temporary, mog is eternal."</p>
+    <p>"They didn’t believe in me… so I mogged them."</p>
+</div>
+
+<script>
+    let sounds = [
+        new Audio("https://www.myinstants.com/media/sounds/vine-boom.mp3"),
+        new Audio("https://www.myinstants.com/media/sounds/tindeck_1.mp3"),
+        new Audio("https://www.myinstants.com/media/sounds/applause-1.mp3")
+    ];
+
+    document.getElementById("btn1").style.display = "inline-block";
+
+    document.getElementById("btn1").addEventListener("click", function() {
+        sounds[0].play();
+        this.style.display = "none";
+        document.getElementById("btn2").style.display = "inline-block";
+    });
+
+    document.getElementById("btn2").addEventListener("click", function() {
+        sounds[1].play();
+        this.style.display = "none";
+        document.getElementById("btn3").style.display = "inline-block";
+    });
+
+    document.getElementById("btn3").addEventListener("click", function() {
+        sounds[2].play();
+        this.style.display = "none";
+        document.getElementById("videoSection").style.display = "block";
+        document.getElementById("quoteBox").style.display = "block";
+
+        // Load the Kapwing video with autoplay
+        document.getElementById("moggerVideo").src = "https://www.kapwing.com/e/68985bab6547705c72ab60de?autoplay=1";
+    });
+
+    document.getElementById("shareBtn").addEventListener("click", function() {
+        navigator.clipboard.writeText(window.location.href);
+        alert("Link copied! Now go spread the rizz and share the mog!");
+    });
+</script>
+
+</body>
+</html>
